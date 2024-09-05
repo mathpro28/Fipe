@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isShowingForm = false
+    @State private var isShowingItemForm = false
+    @State private var isShowingTeacherForm = false
 
     var body: some View {
         NavigationView {
             VStack {
-                // Button with a system image
+                // Buttons with system images
                 HStack {
                     Spacer()
-                    createNewSheet()
+                    createNewSheet()  // Button for new item
+                    createNewTeacher() // Button for new teacher
                 }
-                Text("Creating Dummy Data")
-                    .onAppear {
-                        deleteDummyData()
-                        createDummyData() // Call your function to create dummy data
-                    }
                 Spacer()
+//                CardsView()  // You can uncomment this when you add the CardsView
+            }
+            .onAppear {
+                deleteDummyData()
+//                createDummyData()  Call your function to create dummy data
             }
         }
     }
@@ -31,13 +33,26 @@ struct ContentView: View {
     @ViewBuilder
     func createNewSheet() -> some View {
         Button(action: {
-            isShowingForm = true
+            isShowingItemForm = true  // Set the @State variable directly
         }) {
             Label("", systemImage: "plus")
                 .padding()
         }
-        .sheet(isPresented: $isShowingForm) {
+        .sheet(isPresented: $isShowingItemForm) {
             RegularRegisterView() // Display the form in a sheet
+        }
+    }
+    
+    @ViewBuilder
+    func createNewTeacher() -> some View {
+        Button(action: {
+            isShowingTeacherForm = true  // Set the @State variable directly
+        }) {
+            Label("", systemImage: "person.badge.plus")
+                .padding()
+        }
+        .sheet(isPresented: $isShowingTeacherForm) {
+            ManageTeachersView() // Display the form in a sheet
         }
     }
 }
@@ -45,4 +60,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-

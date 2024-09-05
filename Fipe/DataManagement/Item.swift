@@ -9,7 +9,7 @@ import RealmSwift
 import Foundation
 
 // Item Model
-class Item: Object {
+class Item: Object, Identifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var timestamp: Date
     @Persisted var qty: Int
@@ -31,8 +31,8 @@ class Item: Object {
 class Teacher: Object, Identifiable {
     @Persisted(primaryKey: true) var teacherID: UUID
     @Persisted var teacherName: String
-    @Persisted var teacherPhoneNumber: Int
     @Persisted var teacherLastname: String
+    @Persisted var teacherPhoneNumber: Int
 
     var teacherFullName: String {
         return "\(teacherName) \(teacherLastname)"

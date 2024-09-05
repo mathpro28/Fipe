@@ -67,7 +67,7 @@ struct RegularRegisterView: View {
                             .keyboardType(.decimalPad)
                     }
                 }
-//                .navigationTitle(Text("Nuevo Registro"))
+                .navigationTitle(Text("Nuevo Registro"))
             }
         }
     }

@@ -16,6 +16,7 @@
 		A21A41062C875D2400F7DD4E /* RegularRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41052C875D2400F7DD4E /* RegularRegisterView.swift */; };
 		A21A41092C875FEC00F7DD4E /* ManageTeachersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */; };
 		A224B2522C89551C00AB33A8 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224B2512C89551C00AB33A8 /* ItemData.swift */; };
+		A22D38462C8A14A900C5F51C /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D38452C8A14A900C5F51C /* CardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A21A41052C875D2400F7DD4E /* RegularRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRegisterView.swift; sourceTree = "<group>"; };
 		A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeachersView.swift; sourceTree = "<group>"; };
 		A224B2512C89551C00AB33A8 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		A22D38452C8A14A900C5F51C /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				A21A41072C875F5100F7DD4E /* Forms */,
 				A21A40ED2C86686A00F7DD4E /* FipeApp.swift */,
+				A22D38452C8A14A900C5F51C /* CardsView.swift */,
 				A21A40EF2C86686A00F7DD4E /* ContentView.swift */,
 				A22D38442C89EDE800C5F51C /* DataManagement */,
 				A21A40F12C86686B00F7DD4E /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22D38462C8A14A900C5F51C /* CardsView.swift in Sources */,
 				A224B2522C89551C00AB33A8 /* ItemData.swift in Sources */,
 				A21A41062C875D2400F7DD4E /* RegularRegisterView.swift in Sources */,
 				A21A41092C875FEC00F7DD4E /* ManageTeachersView.swift in Sources */,
@@ -237,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -294,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

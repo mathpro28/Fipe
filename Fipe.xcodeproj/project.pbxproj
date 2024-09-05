@@ -15,6 +15,7 @@
 		A21A41042C866D5B00F7DD4E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A21A41032C866D5B00F7DD4E /* RealmSwift */; };
 		A21A41062C875D2400F7DD4E /* RegularRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41052C875D2400F7DD4E /* RegularRegisterView.swift */; };
 		A21A41092C875FEC00F7DD4E /* ManageTeachersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */; };
+		A224B2522C89551C00AB33A8 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224B2512C89551C00AB33A8 /* ItemData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A21A40FB2C86688100F7DD4E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A21A41052C875D2400F7DD4E /* RegularRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularRegisterView.swift; sourceTree = "<group>"; };
 		A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeachersView.swift; sourceTree = "<group>"; };
+		A224B2512C89551C00AB33A8 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A21A40ED2C86686A00F7DD4E /* FipeApp.swift */,
 				A21A40EF2C86686A00F7DD4E /* ContentView.swift */,
 				A21A40FB2C86688100F7DD4E /* Item.swift */,
+				A224B2512C89551C00AB33A8 /* ItemData.swift */,
 				A21A40F12C86686B00F7DD4E /* Assets.xcassets */,
 				A21A40F32C86686B00F7DD4E /* Preview Content */,
 			);
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A224B2522C89551C00AB33A8 /* ItemData.swift in Sources */,
 				A21A41062C875D2400F7DD4E /* RegularRegisterView.swift in Sources */,
 				A21A41092C875FEC00F7DD4E /* ManageTeachersView.swift in Sources */,
 				A21A40FC2C86688100F7DD4E /* Item.swift in Sources */,

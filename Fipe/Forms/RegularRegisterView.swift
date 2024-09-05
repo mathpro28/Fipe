@@ -12,45 +12,58 @@ struct RegularRegisterView: View {
     @State private var lastname: String = ""
     @State private var clase: String = ""
     @State private var date = Date()
-    @State var currency: Decimal = 0.0
+    @State private var currency: Decimal = 0.0
+    @State private var selectedTeacher: String = "Juan Perez"  // Default selection
+    
     enum Flavor: String, CaseIterable, Identifiable {
         case margaritas, rositas, arcoiris
         var id: Self { self }
     }
 
-
     @State private var selectedFlavor: Flavor = .rositas
-    
+
+    // Dummy teacher data
+    let teachers = ["Juan Perez", "Maria Lopez", "Carlos Gomez", "Ana Rodriguez"]
+
     var body: some View {
         NavigationView {
-            Form {
-                Section("Nombre del maestro") {
-                    TextField("First name", text: $firstname)
-                    TextField("Last name", text: $lastname)
-                }
+            ZStack {
+//                HStack {
+//                    Spacer()
+//                    Text("Confirm")
+//                }
+//                .padding()
                 
-                Section("Grupo") {
-                    Picker("Nombre del curso", selection: $selectedFlavor) {
-                        Text("Margaritas").tag(Flavor.rositas)
-                        Text("Rositas").tag(Flavor.rositas)
-                        Text("Arcoiris").tag(Flavor.arcoiris)
+                Form {
+                    Section("Maestro") {
+                        Picker("Nombre del maestro", selection: $selectedTeacher) {
+                            ForEach(teachers, id: \.self) { teacher in
+                                Text(teacher).tag(teacher)
+                            }
+                        }
+                    }
+                    
+                    Section("Grupo") {
+                        Picker("Nombre del curso", selection: $selectedFlavor) {
+                            Text("Margaritas").tag(Flavor.margaritas)
+                            Text("Rositas").tag(Flavor.rositas)
+                            Text("Arcoiris").tag(Flavor.arcoiris)
+                        }
+                    }
+
+                    Section("Fecha") {
+                        DatePicker(
+                            "Fecha de registro",
+                            selection: $date,
+                            displayedComponents: [.date]
+                        )
+                    }
+                    Section("Ofrenda"){
+                        TextField("Monto", value: $currency, format: .currency(code: "BOB"))
                     }
                 }
-//                Section("Asistencia") {
-//                    TextField()
-//                }
-                Section("Fecha") {
-                    DatePicker(
-                        "Fecha de registro",
-                        selection: $date,
-                        displayedComponents: [.date]
-                    )
-                }
-                Section("Ofrenda"){
-                    TextField("Monto", value: $currency, format: .currency(code: "BOB"))
-                }
+                .navigationTitle(Text("Nuevo Registro"))
             }
-            .navigationTitle(Text("Nuevo Registro"))
         }
     }
 }

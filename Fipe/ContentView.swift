@@ -9,36 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isShowingForm = false
-    @State private var selectedTeacher: String = "Juan Perez"  // Default selection
-    @State private var selectedFlavor: Flavor = .rositas
-    @State private var date = Date()
-    @State private var currency: Decimal = 0.0
-    
-    // Dummy teacher data
-    let teachers = ["Juan Perez", "Maria Lopez", "Carlos Gomez", "Ana Rodriguez"]
-
-    enum Flavor: String, CaseIterable, Identifiable {
-        case margaritas, rositas, arcoiris
-        var id: Self { self }
-    }
 
     var body: some View {
         NavigationView {
             VStack {
+                // Button with a system image
+                HStack {
+                    Spacer()
+                    createNewSheet()
+                }
                 Text("Creating Dummy Data")
                     .onAppear {
-                        createDummyData()
+                        createDummyData() // Call your function to create dummy data
                     }
                 Spacer()
-                Button("Add New Register") {
-                    isShowingForm = true
-                }
-                .sheet(isPresented: $isShowingForm) {
-                    RegularRegisterView()
-                }
-                .cornerRadius(50)
             }
-            .navigationTitle("Main View")
+        }
+    }
+    
+    @ViewBuilder
+    func createNewSheet() -> some View {
+        Button(action: {
+            isShowingForm = true
+        }) {
+            Label("", systemImage: "plus")
+                .padding()
+        }
+        .sheet(isPresented: $isShowingForm) {
+            RegularRegisterView() // Display the form in a sheet
         }
     }
 }
@@ -46,3 +44,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+

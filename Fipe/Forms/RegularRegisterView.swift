@@ -14,6 +14,7 @@ struct RegularRegisterView: View {
     @State private var currency: Decimal = 0.0
     @State private var selectedTeacher: String = ""  // Selection will be based on Teacher's name
     @State private var selectedCourse: String = ""
+    @State private var qty: Int = 0  // State variable to store the quantity
     
     @ObservedResults(Teacher.self) var teachers  // Fetch real teachers from Realm
     @ObservedResults(Course.self) var courses    // Fetch real courses from Realm
@@ -36,6 +37,12 @@ struct RegularRegisterView: View {
                                 ForEach(courses, id: \.courseName) { course in
                                     Text(course.courseName).tag(course.courseName)
                                 }
+                            }
+                        }
+                        
+                        Section("Asistentes") {
+                            Stepper(value: $qty, in: 0...100) {  // Connect Stepper to qty state variable
+                                Text("Numero de asistentes: \(qty)")  // Display the quantity
                             }
                         }
                         
@@ -90,7 +97,7 @@ struct RegularRegisterView: View {
         }
 
         // Create a new item
-        let newItem = Item(timestamp: Date(), qty: 1, total: Decimal128(value: currency), assignee: selectedTeacherObject, course: selectedCourseObject)
+        let newItem = Item(timestamp: Date(), qty: qty, total: Decimal128(value: currency), assignee: selectedTeacherObject, course: selectedCourseObject)
         
         // Begin write transaction
         try! realm.write {

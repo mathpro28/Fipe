@@ -14,16 +14,21 @@ struct CardsView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 16) {
-                    ForEach(items, id: \.id) { item in
-                        // Card for each item
-                        ItemCardView(item: item)
-                            .padding(.horizontal)
+            if #available(iOS 17.0, *) {
+                ScrollView {
+                    VStack(spacing: 16) {
+                        ForEach(items, id: \.id) { item in
+                            // Card for each item
+                            ItemCardView(item: item)
+                                .padding(.horizontal)
+                        }
                     }
                 }
+                .navigationTitle("Registro")
+                .toolbarTitleDisplayMode(.inline)
+            } else {
+                // Fallback on earlier versions
             }
-            .navigationTitle("Registro")
         }
     }
 }

@@ -28,7 +28,7 @@ class Item: Object {
 }
 
 // Teacher Model
-class Teacher: Object {
+class Teacher: Object, Identifiable {
     @Persisted(primaryKey: true) var teacherID: UUID
     @Persisted var teacherName: String
     @Persisted var teacherPhoneNumber: Int
@@ -50,7 +50,7 @@ class Teacher: Object {
 }
 
 // Course Model
-class Course: Object {
+class Course: Object, Identifiable {
     @Persisted(primaryKey: true) var courseID: UUID
     @Persisted var courseName: String
 

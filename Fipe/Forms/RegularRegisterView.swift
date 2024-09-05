@@ -6,48 +6,33 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct RegularRegisterView: View {
-    @State private var firstname: String = ""
-    @State private var lastname: String = ""
-    @State private var clase: String = ""
     @State private var date = Date()
     @State private var currency: Decimal = 0.0
-    @State private var selectedTeacher: String = "Juan Perez"  // Default selection
-    
-    enum Flavor: String, CaseIterable, Identifiable {
-        case margaritas, rositas, arcoiris
-        var id: Self { self }
-    }
-
-    @State private var selectedFlavor: Flavor = .rositas
-
-    // Dummy teacher data
-    let teachers = ["Juan Perez", "Maria Lopez", "Carlos Gomez", "Ana Rodriguez"]
+    @State private var selectedTeacher: String = ""
+    @State private var selectedCourse: String = ""
+    @ObservedResults(Teacher.self) var teachers
+    @ObservedResults(Course.self) var courses
 
     var body: some View {
         NavigationView {
             ZStack {
-//                HStack {
-//                    Spacer()
-//                    Text("Confirm")
-//                }
-//                .padding()
-                
                 Form {
                     Section("Maestro") {
                         Picker("Nombre del maestro", selection: $selectedTeacher) {
-                            ForEach(teachers, id: \.self) { teacher in
-                                Text(teacher).tag(teacher)
+                            ForEach(teachers, id: \.teacherFullName) { teacher in
+                                Text(teacher.teacherFullName).tag(teacher.teacherFullName)
                             }
                         }
                     }
-                    
+
                     Section("Grupo") {
-                        Picker("Nombre del curso", selection: $selectedFlavor) {
-                            Text("Margaritas").tag(Flavor.margaritas)
-                            Text("Rositas").tag(Flavor.rositas)
-                            Text("Arcoiris").tag(Flavor.arcoiris)
+                        Picker("Nombre del curso", selection: $selectedCourse) {
+                            ForEach(courses, id: \.courseName) { course in
+                                Text(course.courseName).tag(course.courseName)
+                            }
                         }
                     }
 
@@ -58,11 +43,20 @@ struct RegularRegisterView: View {
                             displayedComponents: [.date]
                         )
                     }
-                    Section("Ofrenda"){
+
+                    Section("Ofrenda") {
                         TextField("Monto", value: $currency, format: .currency(code: "BOB"))
                     }
                 }
                 .navigationTitle(Text("Nuevo Registro"))
+            }
+        }
+        .onAppear {
+            if let firstTeacher = teachers.first {
+                selectedTeacher = firstTeacher.teacherFullName
+            }
+            if let firstCourse = courses.first {
+                selectedCourse = firstCourse.courseName
             }
         }
     }

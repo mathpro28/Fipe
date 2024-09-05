@@ -15,7 +15,7 @@ func createDummyData() {
     // Begin a write transaction
     try! realm.write {
         // Create 5 teachers
-        let teacher1 = Teacher(teacherID: UUID(), teacherName: "Juan", teacherPhoneNumber: 123456789, teacherLastname: "Perez")
+        let teacher1 = Teacher(teacherID: UUID(), teacherName: "Miguel", teacherPhoneNumber: 74233064, teacherLastname: "Lopez")
         let teacher2 = Teacher(teacherID: UUID(), teacherName: "Maria", teacherPhoneNumber: 987654321, teacherLastname: "Lopez")
         let teacher3 = Teacher(teacherID: UUID(), teacherName: "Carlos", teacherPhoneNumber: 456123789, teacherLastname: "Gomez")
         let teacher4 = Teacher(teacherID: UUID(), teacherName: "Ana", teacherPhoneNumber: 321654987, teacherLastname: "Rodriguez")

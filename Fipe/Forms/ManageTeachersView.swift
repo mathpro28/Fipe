@@ -16,47 +16,35 @@ struct ManageTeachersView: View {
     @State private var dateOfBirth = Date()
 
     @ObservedResults(Teacher.self) var teachers  // Fetch teachers from Realm
-
+    
     var body: some View {
         NavigationView {
-            VStack {
-                // HStack with the Confirm button
-                HStack {
-                    Spacer()
-                    Button(action: saveTeacher) {
-                        Text("Confirm")
-                    }
-                    .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
-                        // Alert buttons
-                        Button("Confirmar", action: saveTeacher)  // Call saveTeacher when confirmed
-                        Button("Cancelar", role: .cancel, action: {})  // Cancel button with no action
-                    } message: {
-                        Text("¿Desea confirmar el registro del maestro?")
+            if #available(iOS 17.0, *) {
+                Form {
+                    Section("Información del maestro") {
+                        TextField("Nombre", text: $teacherName)  // Bind to teacherName state
+                        TextField("Apellido", text: $teacherLastname)  // Bind to teacherLastname state
+                        TextField("Teléfono", text: $teacherPhoneNumber)  // Bind to teacherPhoneNumber state
+                            .keyboardType(.numberPad)
+                        DatePicker(
+                            "Fecha de nacimiento",
+                            selection: $dateOfBirth,
+                            displayedComponents: [.date]
+                        )
                     }
                 }
-                .padding()
-
-                if #available(iOS 17.0, *) {
-                    Form {
-                        Section("Información del maestro") {
-                            TextField("Nombre", text: $teacherName)  // Bind to teacherName state
-                            TextField("Apellido", text: $teacherLastname)  // Bind to teacherLastname state
-                            TextField("Teléfono", text: $teacherPhoneNumber)  // Bind to teacherPhoneNumber state
-                                .keyboardType(.numberPad)
-                            DatePicker(
-                                "Fecha de nacimiento",
-                                selection: $dateOfBirth,
-                                displayedComponents: [.date]
-                            )
-                        }
+                .navigationTitle(Text("Nuevo Maestro"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        confirmButton()
                     }
-                    .navigationTitle(Text("Nuevo Maestro"))
-                    .toolbarTitleDisplayMode(.inline)
-                } else {
-                    // Fallback on earlier versions
                 }
+                .toolbarTitleDisplayMode(.inline)
+            } else {
+                // Fallback on earlier versions
             }
         }
+
     }
     
     // Function to save the teacher to Realm
@@ -88,6 +76,23 @@ struct ManageTeachersView: View {
         showConfirmationAlert = true
         print("Teacher saved successfully!")
     }
+    
+    func confirmButton() -> some View {
+        return Button(action: {
+            // Trigger the confirmation alert, but don't save the teacher yet
+            showConfirmationAlert = true
+        }) {
+            Text("Confirmar")
+        }
+        .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
+            // Alert buttons
+            Button("Confirmar", action: saveTeacher)  // Call saveTeacher only when the user confirms
+            Button("Cancelar", role: .cancel, action: {})  // Cancel button with no action
+        } message: {
+            Text("¿Desea confirmar el registro del maestro?")
+        }
+    }
+
 }
 
 #Preview {

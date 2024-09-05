@@ -21,11 +21,11 @@ struct ContentView: View {
                     createNewTeacher() // Button for new teacher
                 }
                 Spacer()
-//                CardsView()  // You can uncomment this when you add the CardsView
+                CardsView()  // You can uncomment this when you add the CardsView
             }
             .onAppear {
                 deleteDummyData()
-//                createDummyData()  Call your function to create dummy data
+                createDummyData()  // Call your function to create dummy data
             }
         }
     }
@@ -36,7 +36,6 @@ struct ContentView: View {
             isShowingItemForm = true  // Set the @State variable directly
         }) {
             Label("", systemImage: "plus")
-                .padding()
         }
         .sheet(isPresented: $isShowingItemForm) {
             RegularRegisterView() // Display the form in a sheet
@@ -60,3 +59,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+

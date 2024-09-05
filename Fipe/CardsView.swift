@@ -23,7 +23,7 @@ struct CardsView: View {
                     }
                 }
             }
-            .navigationTitle("Items List")
+            .navigationTitle("Registro")
         }
     }
 }

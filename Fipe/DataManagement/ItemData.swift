@@ -48,3 +48,24 @@ func createDummyData() {
     print("Dummy data created successfully!")
 }
 
+func deleteDummyData() {
+    // Get the default Realm
+    let realm = try! Realm()
+
+    // Begin a write transaction
+    try! realm.write {
+        // Fetch all the data for teachers, courses, and items
+        let allTeachers = realm.objects(Teacher.self)
+        let allCourses = realm.objects(Course.self)
+        let allItems = realm.objects(Item.self)
+
+        // Delete the data
+        realm.delete(allItems)
+        realm.delete(allCourses)
+        realm.delete(allTeachers)
+    }
+
+    print("Dummy data deleted successfully!")
+}
+
+

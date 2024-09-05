@@ -64,8 +64,7 @@
 				A21A41072C875F5100F7DD4E /* Forms */,
 				A21A40ED2C86686A00F7DD4E /* FipeApp.swift */,
 				A21A40EF2C86686A00F7DD4E /* ContentView.swift */,
-				A21A40FB2C86688100F7DD4E /* Item.swift */,
-				A224B2512C89551C00AB33A8 /* ItemData.swift */,
+				A22D38442C89EDE800C5F51C /* DataManagement */,
 				A21A40F12C86686B00F7DD4E /* Assets.xcassets */,
 				A21A40F32C86686B00F7DD4E /* Preview Content */,
 			);
@@ -87,6 +86,15 @@
 				A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */,
 			);
 			path = Forms;
+			sourceTree = "<group>";
+		};
+		A22D38442C89EDE800C5F51C /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				A224B2512C89551C00AB33A8 /* ItemData.swift */,
+				A21A40FB2C86688100F7DD4E /* Item.swift */,
+			);
+			path = DataManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

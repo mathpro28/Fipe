@@ -20,6 +20,7 @@ struct ContentView: View {
                 }
                 Text("Creating Dummy Data")
                     .onAppear {
+                        deleteDummyData()
                         createDummyData() // Call your function to create dummy data
                     }
                 Spacer()

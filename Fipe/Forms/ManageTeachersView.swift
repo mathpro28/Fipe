@@ -78,17 +78,21 @@ struct ManageTeachersView: View {
     }
     
     func confirmButton() -> some View {
-        return Button(action: saveTeacher) {
+        return Button(action: {
+            // Trigger the confirmation alert, but don't save the teacher yet
+            showConfirmationAlert = true
+        }) {
             Text("Confirmar")
         }
         .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
             // Alert buttons
-            Button("Confirmar", action: saveTeacher)  // Call saveTeacher when confirmed
+            Button("Confirmar", action: saveTeacher)  // Call saveTeacher only when the user confirms
             Button("Cancelar", role: .cancel, action: {})  // Cancel button with no action
         } message: {
             Text("¿Desea confirmar el registro del maestro?")
         }
     }
+
 }
 
 #Preview {

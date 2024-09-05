@@ -25,7 +25,7 @@ struct ContentView: View {
             }
             .onAppear {
                 deleteDummyData()
-//                createDummyData()  Call your function to create dummy data
+                createDummyData()  // Call your function to create dummy data
             }
         }
     }
@@ -36,7 +36,6 @@ struct ContentView: View {
             isShowingItemForm = true  // Set the @State variable directly
         }) {
             Label("", systemImage: "plus")
-                .padding()
         }
         .sheet(isPresented: $isShowingItemForm) {
             RegularRegisterView() // Display the form in a sheet
@@ -60,3 +59,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+

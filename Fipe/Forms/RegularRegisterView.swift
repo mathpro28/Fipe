@@ -104,8 +104,10 @@ struct RegularRegisterView: View {
     }
 
     func confirmButton() -> some View {
-        Button(action: saveItem) {
-            Text("Confirm")
+        Button(action: {
+            showConfirmationAlert = true
+        }) {
+            Text("Confirmar")
         }
         .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
             // Alert buttons

@@ -21,7 +21,7 @@ struct ContentView: View {
                     createNewTeacher() // Button for new teacher
                 }
                 Spacer()
-//                CardsView()  // You can uncomment this when you add the CardsView
+                CardsView()  // You can uncomment this when you add the CardsView
             }
             .onAppear {
                 deleteDummyData()

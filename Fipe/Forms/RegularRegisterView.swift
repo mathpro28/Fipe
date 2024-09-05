@@ -17,57 +17,51 @@ struct RegularRegisterView: View {
     
     @ObservedResults(Teacher.self) var teachers  // Fetch real teachers from Realm
     @ObservedResults(Course.self) var courses    // Fetch real courses from Realm
-
+    
     var body: some View {
         NavigationView {
             VStack {
-                // HStack with the Confirm button
-                HStack {
-                    Spacer()
-                    Button(action: saveItem) {
-                        Text("Confirm")
-                    }
-                    .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
-                            // Alert buttons
-                            Button("Confirmar", action: saveItem)  // Call saveItem when confirmed
-                            Button("Cancelar", role: .cancel, action: {})  // Cancel button with no action
-                        } message: {
-                            Text("Desea confirmar el registro?")
-                        }
-                }
-                .padding()
-
-                Form {
-                    Section("Maestro") {
-                        Picker("Nombre del maestro", selection: $selectedTeacher) {
-                            ForEach(teachers, id: \.teacherFullName) { teacher in
-                                Text(teacher.teacherFullName).tag(teacher.teacherFullName)
+                if #available(iOS 17.0, *) {
+                    Form {
+                        Section("Maestro") {
+                            Picker("Nombre del maestro", selection: $selectedTeacher) {
+                                ForEach(teachers, id: \.teacherFullName) { teacher in
+                                    Text(teacher.teacherFullName).tag(teacher.teacherFullName)
+                                }
                             }
                         }
-                    }
-                    
-                    Section("Grupo") {
-                        Picker("Nombre del curso", selection: $selectedCourse) {
-                            ForEach(courses, id: \.courseName) { course in
-                                Text(course.courseName).tag(course.courseName)
+                        
+                        Section("Grupo") {
+                            Picker("Nombre del curso", selection: $selectedCourse) {
+                                ForEach(courses, id: \.courseName) { course in
+                                    Text(course.courseName).tag(course.courseName)
+                                }
                             }
                         }
+                        
+                        Section("Fecha") {
+                            DatePicker(
+                                "Fecha de registro",
+                                selection: $date,
+                                displayedComponents: [.date]
+                            )
+                        }
+                        
+                        Section("Ofrenda") {
+                            TextField("Monto", value: $currency, format: .currency(code: "BOB"))
+                                .keyboardType(.decimalPad)
+                        }
                     }
-
-                    Section("Fecha") {
-                        DatePicker(
-                            "Fecha de registro",
-                            selection: $date,
-                            displayedComponents: [.date]
-                        )
+                    .navigationTitle(Text("Nuevo Registro"))
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            confirmButton()
+                        }
                     }
-
-                    Section("Ofrenda") {
-                        TextField("Monto", value: $currency, format: .currency(code: "BOB"))
-                            .keyboardType(.decimalPad)
-                    }
+                    .toolbarTitleDisplayMode(.inline)
+                } else {
+                    // Fallback on earlier versions
                 }
-                .navigationTitle(Text("Nuevo Registro"))
             }
         }
     }
@@ -109,6 +103,18 @@ struct RegularRegisterView: View {
         print("Item saved successfully!")
     }
 
+    func confirmButton() -> some View {
+        Button(action: saveItem) {
+            Text("Confirm")
+        }
+        .alert("Guardar Datos", isPresented: $showConfirmationAlert) {
+            // Alert buttons
+            Button("Confirmar", action: saveItem)  // Call saveItem when confirmed
+            Button("Cancelar", role: .cancel, action: {})  // Cancel button with no action
+        } message: {
+            Text("Desea confirmar el registro?")
+        }
+    }
 
 }
 

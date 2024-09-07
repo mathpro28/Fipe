@@ -14,10 +14,25 @@
 		A21A40FC2C86688100F7DD4E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A40FB2C86688100F7DD4E /* Item.swift */; };
 		A21A41062C875D2400F7DD4E /* RegularRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41052C875D2400F7DD4E /* RegularRegisterView.swift */; };
 		A21A41092C875FEC00F7DD4E /* ManageTeachersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21A41082C875FEC00F7DD4E /* ManageTeachersView.swift */; };
+		A21EE8092C8B6D7B009D9738 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A21EE8082C8B6D7B009D9738 /* RealmSwift */; };
+		A21EE80B2C8B6DC1009D9738 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A21EE8082C8B6D7B009D9738 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A224B2522C89551C00AB33A8 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224B2512C89551C00AB33A8 /* ItemData.swift */; };
 		A22D38462C8A14A900C5F51C /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D38452C8A14A900C5F51C /* CardsView.swift */; };
-		A2B0032A2C8A5D8600A78225 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2B003292C8A5D8600A78225 /* RealmSwift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A28417052C8B52AA002893B6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A21EE80B2C8B6DC1009D9738 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A21A40EA2C86686A00F7DD4E /* Fipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2B0032A2C8A5D8600A78225 /* RealmSwift in Frameworks */,
+				A21EE8092C8B6D7B009D9738 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +64,7 @@
 			children = (
 				A21A40EC2C86686A00F7DD4E /* Fipe */,
 				A21A40EB2C86686A00F7DD4E /* Products */,
+				A284170B2C8B54FA002893B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +116,13 @@
 			path = DataManagement;
 			sourceTree = "<group>";
 		};
+		A284170B2C8B54FA002893B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +133,7 @@
 				A21A40E62C86686A00F7DD4E /* Sources */,
 				A21A40E72C86686A00F7DD4E /* Frameworks */,
 				A21A40E82C86686A00F7DD4E /* Resources */,
+				A28417052C8B52AA002893B6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -117,7 +141,7 @@
 			);
 			name = Fipe;
 			packageProductDependencies = (
-				A2B003292C8A5D8600A78225 /* RealmSwift */,
+				A21EE8082C8B6D7B009D9738 /* RealmSwift */,
 			);
 			productName = Fipe;
 			productReference = A21A40EA2C86686A00F7DD4E /* Fipe.app */;
@@ -148,7 +172,7 @@
 			);
 			mainGroup = A21A40E12C86686A00F7DD4E;
 			packageReferences = (
-				A2B003282C8A5D8600A78225 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				A21EE8052C8B6D7B009D9738 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = A21A40EB2C86686A00F7DD4E /* Products */;
 			projectDirPath = "";
@@ -313,16 +337,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Fipe/Preview Content\"";
 				DEVELOPMENT_TEAM = 9UX79BP8JN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Fipe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -342,16 +370,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Fipe/Preview Content\"";
 				DEVELOPMENT_TEAM = 9UX79BP8JN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Fipe;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,7 +422,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A2B003282C8A5D8600A78225 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		A21EE8052C8B6D7B009D9738 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -401,9 +433,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A2B003292C8A5D8600A78225 /* RealmSwift */ = {
+		A21EE8082C8B6D7B009D9738 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A2B003282C8A5D8600A78225 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = A21EE8052C8B6D7B009D9738 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
